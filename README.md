@@ -1,5 +1,66 @@
+# Spark ML Churn Prediction with MLflow
+
+End-to-end **Spark ML** project for customer churn prediction with a focus on  
+**scalable feature engineering, reproducible training, and batch inference**.
+
+This repository demonstrates how to build a **production-style machine learning pipeline** on top of Apache Spark, suitable for large-scale datasets and MLOps workflows.
 
 ---
+
+## 1. Problem Statement
+
+Customer churn is a critical business problem for banks and subscription-based companies.  
+The goal of this project is to **predict whether a customer is likely to churn**, using historical customer behavior and profile data.
+
+**Business value:**
+- early churn detection,
+- targeted retention campaigns,
+- reduced revenue loss.
+
+---
+
+## 2. Dataset
+
+- **Source:** Bank Churners dataset (public dataset, educational purposes)
+- **Target variable:** `Attrition_Flag`
+- **Task:** Binary classification (Churn / No Churn)
+- **Size:** ~10k rows, ~20 features
+
+> The dataset is used as a representative example; the pipeline is designed to scale to millions of rows without code changes.
+
+---
+
+## 3. Tech Stack
+
+- Apache Spark (PySpark)
+- Spark ML Pipelines
+- MLflow
+- Docker & Docker Compose
+- Jupyter Notebook
+
+---
+
+## 4. Project Structure
+
+spark-ml-flow/
+│
+├── notebooks/
+│ ├── spark_mlib_research.ipynb # EDA and research experiments
+│ └── spark_mlib_production.ipynb # Production-style batch inference
+│
+├── scripts/
+│ ├── train.py # Spark training entrypoint
+│ └── batch_score.py # Batch inference job
+│
+├── data/
+│ ├── BankChurners.csv
+│ └── README.md # Data description and license
+│
+├── docker/
+│ └── docker-compose.yml # Spark cluster and Jupyter
+│
+├── requirements.txt
+└── README.md
 
 ## 5. ML Pipeline Overview
 
