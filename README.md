@@ -1,9 +1,9 @@
-# Spark ML Churn Prediction with MLflow
+# Spark ML Churn Prediction
 
 End-to-end **Spark ML** project for customer churn prediction with a focus on  
-**scalable feature engineering, reproducible training, and batch inference**.
+**scalable feature engineering, reproducible training**.
 
-This repository demonstrates how to build a **production-style machine learning pipeline** on top of Apache Spark, suitable for large-scale datasets and MLOps workflows.
+This repository demonstrates how to build a **production-style machine learning pipeline** on top of Apache Spark.
 
 ---
 
@@ -34,7 +34,6 @@ The goal of this project is to **predict whether a customer is likely to churn**
 
 - Apache Spark (PySpark)
 - Spark ML Pipelines
-- MLflow
 - Docker & Docker Compose
 - Jupyter Notebook
 
@@ -42,25 +41,36 @@ The goal of this project is to **predict whether a customer is likely to churn**
 
 ## 4. Project Structure
 
+```text
 spark-ml-flow/
 │
 ├── notebooks/
-│ ├── spark_mlib_research.ipynb # EDA and research experiments
-│ └── spark_mlib_production.ipynb # Production-style batch inference
+│   ├── spark_mlib_research.ipynb
+│   │   # EDA and research experiments
+│   │
+│   └── spark_mlib_production.ipynb
+│       # Production-style batch inference
 │
 ├── scripts/
-│ ├── train.py # Spark training entrypoint
-│ └── batch_score.py # Batch inference job
+│   ├── train.py
+│   │   # Spark model training entrypoint
+│   │
+│   └── batch_score.py
+│       # Batch inference job
 │
 ├── data/
-│ ├── BankChurners.csv
-│ └── README.md # Data description and license
+│   ├── BankChurners.csv
+│   │
+│   └── README.md
+│       # Data description and license
 │
 ├── docker/
-│ └── docker-compose.yml # Spark cluster and Jupyter
+│   └── docker-compose.yml
+│       # Spark cluster and Jupyter environment
 │
 ├── requirements.txt
 └── README.md
+```
 
 ## 5. ML Pipeline Overview
 
@@ -73,7 +83,6 @@ The project uses **Spark ML Pipeline API** to ensure reproducibility and scalabi
 4. Model training (`LogisticRegression`)
 5. Evaluation (AUC, Precision, Recall, F1)
 6. Model persistence
-7. Batch inference
 
 All transformations are part of a single **PipelineModel**, ensuring consistent preprocessing during training and inference.
 
@@ -103,24 +112,7 @@ Example (illustrative):
 
 ---
 
-## 7. Experiment Tracking (MLflow)
-
-The project is designed to integrate with **MLflow**:
-- parameters (model hyperparameters),
-- metrics (AUC, F1, Recall),
-- artifacts (pipeline stages, evaluation reports),
-- Spark `PipelineModel` logging.
-
-This enables:
-- reproducible experiments,
-- model comparison,
-- future model registry integration.
-
----
-
-## 8. Running the Project
-
-### 8.1 Start Spark Environment
+## 7. Running the Project
 
 ```bash
 docker compose up -d
